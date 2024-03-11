@@ -7,7 +7,7 @@ public class CookieJoinCommand implements Command{
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		return "view/basic/CookiejoinForm.jsp";
+		return null;
 	}
 
 }

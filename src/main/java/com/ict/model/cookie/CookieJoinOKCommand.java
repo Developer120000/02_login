@@ -12,23 +12,7 @@ public class CookieJoinOKCommand implements Command{
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		// 회원가입
-		CookieVO cvo = new CookieVO();
-		cvo.setId(request.getParameter("id"));
-		cvo.setPwd(request.getParameter("pwd"));
-		cvo.setName(request.getParameter("name"));
-		cvo.setEmail(request.getParameter("email"));
-		cvo.setAddr(request.getParameter("addr"));
-		cvo.setPhone(request.getParameter("phone"));
-		
-		int result = CookieDAO.getJoin(cvo);
-		
-		if(result == 1 ) {
-			return "view/basic/loginForm.jsp";
-		}else {
-			return "view/basic/joinForm.jsp";
-		}
-		
+		return null;
 	}
 
 }

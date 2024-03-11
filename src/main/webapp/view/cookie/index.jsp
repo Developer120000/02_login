@@ -16,7 +16,7 @@
 			<input type="submit" value="로그인">
 			<input type="hidden" name="cmd" value="c_login">
 		</form>
-		<form action="/02_login/MyController" method="post" class="form">
+		<form action="/02_login/CookieController" method="post" class="form">
 			<input type="submit" value="회원가입">
 			<input type="hidden" name="cmd" value="c_join">
 		</form>
