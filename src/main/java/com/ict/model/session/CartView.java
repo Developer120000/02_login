@@ -1,13 +1,11 @@
-package com.ict.model.cookie;
+package com.ict.model.session;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class CookieJoinCommand implements Command{
-
-	@Override
+public class CartView {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		return "view/cookie/joinForm.jsp";
+		// 세션이 있으니까 할일없고 카트뷰로 이동만
+		return "view/session_cart/session_cart_view.jsp";
 	}
-
 }
