@@ -1,5 +1,8 @@
 package com.ict.model.file;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -21,6 +24,37 @@ public class FileUP {
 							"utf-8", 			// 한글처리
 							// 업로드 위치에 같은 이름의 파일이 있으면 파일이름 뒤에 숫자가 붙는다.
 							new DefaultFileRenamePolicy());
+			// request.getParameter 사용시 null 나옴
+			String name = mr.getParameter("name");
+			// 사용자가 파일을 올릴 때 이름
+//			String f_name = mr.getOriginalFileName(name);
+			// 서버가 저장할 당시의 이름, 99프로 이거 사용
+			String f_name = mr.getFilesystemName("f_name");
+			// 그림인지 동영상인지 구분할때 사용 어떤타입인지, 탐색기폴더의 유형
+			String contentType = mr.getContentType("f_name");
+			
+			// File(저장위치, 파일이름)
+			File file = new File(path, f_name);
+			long f_size = file.length(); // 파일크기, 탐색기폴더의 크기
+			long f_last = file.lastModified(); // 마지막 수정된 날짜, 탐색기폴더의 수정된 날짜
+			
+			SimpleDateFormat day = 
+					new SimpleDateFormat("yyyy-MM-dd HH:mm:ss E");
+			String f_last2 = day.format(f_last);
+			
+//			System.out.println(name);
+//			System.out.println(f_name);
+//			System.out.println(contentType);
+//			System.out.println(f_size);
+//			System.out.println(f_last);
+			
+			request.setAttribute("name", name);
+			request.setAttribute("f_name", f_name);
+			request.setAttribute("contentType", contentType);
+			request.setAttribute("f_size", f_size);
+			request.setAttribute("f_last", f_last);
+			request.setAttribute("f_last2", f_last2);
+			
 			return "view/fileup_down/FileUp_result.jsp";
 		} catch (Exception e) {
 		}

@@ -19,7 +19,7 @@
  
  	<form action="/02_login/FileUpController" method="post" enctype="multipart/form-data">
  		<p>올린사람 : <input type="text" name="name"></p>
- 		<p>첨부파일 : <input type="file" name="fname"></p>
+ 		<p>첨부파일 : <input type="file" name="f_name"></p>
  		<input type="submit" value="업로드">
  	</form>
 </body>
