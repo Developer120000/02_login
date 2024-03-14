@@ -4,7 +4,7 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="userMember">
-	<insert id="join" parameterType="com.ict.db.basic.BasicVO">
+	<insert id="join" parameterType="com.ict.db.guestbook2.BasicVO">
    		insert into userMember(idx, id, pwd, name, email, addr, phone, regdate)
    		values(userMember_seq.nextval, #{id},#{pwd},#{name},#{email},#{addr},#{phone},sysdate)
    </insert>
